@@ -2,29 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ProblemaSubconjuntos {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Digite os números separados por espaço: ");
-        String entrada = scanner.nextLine();
-        String[] numerosString = entrada.split(" ");
-        int[] numeros = new int[numerosString.length];
-
-        for (int i = 0; i < numerosString.length; i++) {
-            numeros[i] = Integer.parseInt(numerosString[i]);
-        }
-
-        SolucionadorSomaSubconjuntos solucionador = new SolucionadorSomaSubconjuntos(numeros);
-        List<List<Integer>> subconjuntosComSomaZero = solucionador.encontrarTodosSubconjuntosComSomaZero();
-
-        if (!subconjuntosComSomaZero.isEmpty()) {
-            System.out.println("Subconjuntos com soma zero encontrados: " + subconjuntosComSomaZero);
-        } else {
-            System.out.println("Não foram encontrados subconjuntos com soma zero.");
-        }
-    }
-}
-
 class SolucionadorSomaSubconjuntos {
     private int[] numeros;
 
@@ -67,5 +44,28 @@ class SolucionadorSomaSubconjuntos {
             soma += numero;
         }
         return soma;
+    }
+}
+
+public class ProblemaSubconjuntos {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite os números separados por espaço: ");
+        String entrada = scanner.nextLine();
+        String[] numerosString = entrada.split(" ");
+        int[] numeros = new int[numerosString.length];
+
+        for (int i = 0; i < numerosString.length; i++) {
+            numeros[i] = Integer.parseInt(numerosString[i]);
+        }
+
+        SolucionadorSomaSubconjuntos solucionador = new SolucionadorSomaSubconjuntos(numeros);
+        List<List<Integer>> subconjuntosComSomaZero = solucionador.encontrarTodosSubconjuntosComSomaZero();
+
+        if (!subconjuntosComSomaZero.isEmpty()) {
+            System.out.println("Subconjuntos com soma zero encontrados: " + subconjuntosComSomaZero);
+        } else {
+            System.out.println("Não foram encontrados subconjuntos com soma zero.");
+        }
     }
 }
