@@ -74,30 +74,30 @@ procedimento EncontrarSubconjuntoComSomaZero(numerosEntrada : inteiros)
 2.  subconjunto := novo array booleano[numeros.length]
 3.  solucaoEncontrada := falso
 4.  buscarSubconjunto(0, 0)
-5.  se (!solucaoEncontrada)
+5.  if (!solucaoEncontrada)
 6.      print "Não foi possível encontrar um subconjunto com soma zero."
 
 procedimento buscarSubconjunto(indice : inteiro, somaAtual : inteiro)
-7.  se (indice = numeros.length)
-8.      se (somaAtual = 0 e subconjuntoNaoVazio())
+7.  if (indice = numeros.length)
+8.      if (somaAtual = 0 e subconjuntoNaoVazio())
 9.          solucaoEncontrada := verdadeiro
 10.         imprimirSubconjunto()
-11.     retorne
+11.     return
 12. subconjunto[indice] := verdadeiro
 13. buscarSubconjunto(indice + 1, somaAtual + numeros[indice])
 14. subconjunto[indice] := falso
 15. buscarSubconjunto(indice + 1, somaAtual)
 
 função subconjuntoNaoVazio() : booleano
-16. para i ← 0 até subconjunto.length - 1
-17.     se (subconjunto[i])
-18.         retorne verdadeiro
-19. retorne falso
+16. for i ← 0 até subconjunto.length - 1
+17.     if (subconjunto[i])
+18.         return verdadeiro
+19. return falso
 
 procedimento imprimirSubconjunto()
 20. print "Subconjunto com soma zero encontrado: "
-21. para i ← 0 até numeros.length - 1
-22.     se (subconjunto[i])
+21. for i ← 0 até numeros.length - 1
+22.     if (subconjunto[i])
 23.         print numeros[i] + " "
 24. print "\n"
 
@@ -107,7 +107,7 @@ procedimento main()
 27. quantidade := ler número inteiro
 28. numerosEntrada := novo array int[quantidade]
 29. print "Digite os números (positivos e negativos): "
-30. para i ← 0 até quantidade - 1
+30. for i ← 0 até quantidade - 1
 31.     numerosEntrada[i] := ler número inteiro
 32. EncontrarSubconjuntoComSomaZero(numerosEntrada)
 
