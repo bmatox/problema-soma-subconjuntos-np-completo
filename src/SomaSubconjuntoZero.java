@@ -73,4 +73,3 @@ do problema em qualquer ponto do tempo. No contexto deste código, o backtrackin
 combinações possíveis de números para encontrar um subconjunto cuja soma é zero. Se tal subconjunto for encontrado,
 ele é impresso; caso contrário, uma mensagem é exibida indicando que não foi possível encontrar um subconjunto com
 soma zero. Espero que isso ajude a entender a lógica por trás dos métodos!*/
- */
