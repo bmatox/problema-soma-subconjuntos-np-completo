@@ -39,7 +39,7 @@ public class SomaSubconjuntoZero {
 
         // Incluir o número atual no subconjunto e continuar a busca
         subconjunto[indice] = true;
-        buscarSubconjunto(indice + 1, somaAtual + numeros[indice]);
+        buscarSubconjunto(indice + 1, somaAtual + numeros[indice]); // Recursão para o próximo índice com a soma atualizada com o número atual
 
         // Não incluir o número atual no subconjunto e continuar a busca
         subconjunto[indice] = false;
