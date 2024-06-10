@@ -1,13 +1,27 @@
 import java.util.Scanner;
 
 public class SomaSubconjuntoZero {
-    private static int[] numeros;
-    private static boolean[] subconjunto;
-    private static boolean solucaoEncontrada = false;
+    private static int[] numeros; // Array para armazenar os números de entrada
+    private static boolean[] subconjunto; // Array para armazenar se um número está no subconjunto ou não
+    private static boolean solucaoEncontrada = false; // Variável para indicar se uma solução foi encontrada ou não
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite a quantidade de números: ");
+        int quantidade = scanner.nextInt();
+        int[] numerosEntrada = new int[quantidade];
+
+        System.out.print("Digite os números (positivos e negativos): ");
+        for (int i = 0; i < quantidade; i++) {
+            numerosEntrada[i] = scanner.nextInt();
+        }
+
+        encontrarSubconjuntoComSomaZero(numerosEntrada);
+    }
 
     public static void encontrarSubconjuntoComSomaZero(int[] numerosEntrada) {
         numeros = numerosEntrada;
-        subconjunto = new boolean[numeros.length];
+        subconjunto = new boolean[numeros.length]; // Inicializa o array de subconjunto com o mesmo tamanho que o array de números
         buscarSubconjunto(0, 0);
         if (!solucaoEncontrada) {
             System.out.println("Não foi possível encontrar um subconjunto com soma zero.");
@@ -49,20 +63,6 @@ public class SomaSubconjuntoZero {
             }
         }
         System.out.println();
-    }
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Digite a quantidade de números: ");
-        int quantidade = scanner.nextInt();
-        int[] numerosEntrada = new int[quantidade];
-
-        System.out.print("Digite os números (positivos e negativos): ");
-        for (int i = 0; i < quantidade; i++) {
-            numerosEntrada[i] = scanner.nextInt();
-        }
-
-        encontrarSubconjuntoComSomaZero(numerosEntrada);
     }
 }
 
