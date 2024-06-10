@@ -23,7 +23,7 @@ public class SomaSubconjuntoZero {
         numeros = numerosEntrada;
         subconjunto = new boolean[numeros.length]; // Inicializa o array de subconjunto com o mesmo tamanho que o array de números
         buscarSubconjunto(0, 0);
-        if (!solucaoEncontrada) {
+        if (!solucaoEncontrada) { // Se nenhuma solução foi encontrada, exibe uma mensagem
             System.out.println("Não foi possível encontrar um subconjunto com soma zero.");
         }
     }
@@ -39,13 +39,16 @@ public class SomaSubconjuntoZero {
 
         // Incluir o número atual no subconjunto e continuar a busca
         subconjunto[indice] = true;
-        buscarSubconjunto(indice + 1, somaAtual + numeros[indice]); // Recursão para o próximo índice com a soma atualizada com o número atual
+        // Recursão para o próximo índice com a soma atualizada com o número atual
+        buscarSubconjunto(indice + 1, somaAtual + numeros[indice]);
 
         // Não incluir o número atual no subconjunto e continuar a busca
         subconjunto[indice] = false;
+        // Recursão para o próximo índice com a soma atualizada sem o número atual
         buscarSubconjunto(indice + 1, somaAtual);
     }
 
+    // Verifica se o subconjunto não está vazio
     private static boolean subconjuntoNaoVazio() {
         for (int i = 0; i < subconjunto.length; i++) {
             if (subconjunto[i]) {
@@ -66,10 +69,10 @@ public class SomaSubconjuntoZero {
     }
 }
 
-/*COMENTÁRIO: Este código Java implementa um algoritmo para encontrar um subconjunto de números que somam zero.
+/*COMENTÁRIO: O código implementa um algoritmo para encontrar um subconjunto de números que somam zero.
 Ele utiliza uma abordagem de backtracking, que é um paradigma algorítmico para resolver problemas recursivamente,
 tentando construir uma solução de maneira incremental, removendo soluções que falham em satisfazer as restrições
 do problema em qualquer ponto do tempo. No contexto deste código, o backtracking é usado para explorar todas as
 combinações possíveis de números para encontrar um subconjunto cuja soma é zero. Se tal subconjunto for encontrado,
 ele é impresso; caso contrário, uma mensagem é exibida indicando que não foi possível encontrar um subconjunto com
-soma zero. Espero que isso ajude a entender a lógica por trás dos métodos!*/
+soma zero. */
